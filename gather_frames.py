@@ -47,8 +47,12 @@ def get_network_requests(url):
     # Close the browser
     driver.quit()
     if isinstance(requests, list):
-        return requests[0]
-    else:
+        if len(requests) > 0:
+            return requests[0]
+        else:
+            time.sleep(1)
+            return None
+    elif isinstance(requests, str):
         return requests
 
 
@@ -119,12 +123,14 @@ def main(base_url, chunklist_url, totaltime=10, delta=1):
 
 
 if __name__ == "__main__":
+    chunklist_url = None
     base_url = "https://6162417352ffd.streamlock.net/hls/platjeoost.stream/"
-    chunklist_url = "chunklist_w672461186_tkd293emF0b2tlbmVuZHRpbWU9MTczMjk4NDg2OSZ3b3d6YXRva2VuaGFzaD1ESW94X3hBQmlwYWUwMzlUWHFBekZXRVlNUVYtZWlqRzhEWmVQZ3lfTjU4PSZ3b3d6YXRva2Vuc3RhcnR0aW1lPTE3MzI5ODMwMDk=.m3u8"
-
     url = "https://webcam-vlaardingen.nl/pages/cameras/oost.php"
-    chunklist_url = get_network_requests(url)
-    n = main(
+
+    while chunklist_url is None:
+        chunklist_url = get_network_requests(url)
+    
+    main(
         base_url=base_url,
         chunklist_url=chunklist_url,
         totaltime=10,
