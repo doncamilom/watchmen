@@ -13,6 +13,11 @@ from selenium.webdriver.chrome.service import Service
 from webdriver_manager.chrome import ChromeDriverManager
 import json
 
+
+
+logging.basicConfig(level=logging.INFO, format="%(asctime)s - %(levelname)s - %(message)s")
+
+
 def get_network_requests(url):
     # Set up Chrome options
     chrome_options = Options()
@@ -83,7 +88,7 @@ def main(base_url, chunklist_url, totaltime=10, delta=1):
     def get_frames(totaltime=10, delta=1):
         frames_dict = load_datedict()
 
-        logging.info("Fetching frames for {totaltime} seconds with a delta of {delta} seconds.")
+        logging.info(f"Fetching frames for {totaltime} seconds with a delta of {delta} seconds.")
         t0 = time.time()
         totalsegments = 0
         while time.time()-t0 < totaltime:
@@ -117,18 +122,11 @@ if __name__ == "__main__":
     base_url = "https://6162417352ffd.streamlock.net/hls/platjeoost.stream/"
     chunklist_url = "chunklist_w672461186_tkd293emF0b2tlbmVuZHRpbWU9MTczMjk4NDg2OSZ3b3d6YXRva2VuaGFzaD1ESW94X3hBQmlwYWUwMzlUWHFBekZXRVlNUVYtZWlqRzhEWmVQZ3lfTjU4PSZ3b3d6YXRva2Vuc3RhcnR0aW1lPTE3MzI5ODMwMDk=.m3u8"
 
+    url = "https://webcam-vlaardingen.nl/pages/cameras/oost.php"
+    chunklist_url = get_network_requests(url)
     n = main(
         base_url=base_url,
         chunklist_url=chunklist_url,
         totaltime=10,
         delta=1
     )
-    if n == 0:
-        url = "https://webcam-vlaardingen.nl/pages/cameras/oost.php"
-        chunklist_url = get_network_requests(url)
-        n = main(
-            base_url=base_url,
-            chunklist_url=chunklist_url,
-            totaltime=10,
-            delta=1
-        )
