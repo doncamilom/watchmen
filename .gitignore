@@ -1,1 +1,4 @@
 *.ts
+.env
+*pyc
+**.egg-info
