@@ -15,7 +15,7 @@ load_dotenv()
 
 
 from watchmen.tools import owlvit
-from base import ImageAnalysisEvent, MetaFlow
+from .base import ImageAnalysisEvent, MetaFlow
 
 import os
 from PIL import Image
@@ -78,9 +78,6 @@ class SingleQueryAgent(MetaFlow):
         return StopEvent(result=str(response))
 
 
-# This agent just does a single query.
-# Make another one that uses this as a tool, but is a chatbot.
-
 from llama_index.agent.openai import OpenAIAgent
 # from llama_index.core.agent.openai import OpenAIAgent
 from llama_index.core.tools import FunctionTool
@@ -97,11 +94,11 @@ tools = [
     )
 ]
 
-agent = OpenAIAgent.from_tools(tools, verbose=True)
 
 if __name__ == "__main__":
-    inp = input("User: ")
+    agent = OpenAIAgent.from_tools(tools, verbose=True)
 
+    inp = input("User: ")
     while inp != "exit":
         response = agent.chat(inp)
         print(f"Bot: {str(response)}")

@@ -35,3 +35,4 @@ llama-index-llms-openai
 fastapi
 uvicorn
 python-multipart
+llama-index-agent-openai
