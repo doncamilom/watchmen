@@ -133,6 +133,6 @@ if __name__ == "__main__":
     main(
         base_url=base_url,
         chunklist_url=chunklist_url,
-        totaltime=10,
-        delta=1
+        totaltime=20*60,
+        delta=5
     )

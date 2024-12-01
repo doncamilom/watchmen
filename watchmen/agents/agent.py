@@ -28,7 +28,7 @@ class KeywordsEvent(Event):
     keywords: str
 
 
-class SingleQueryAgent(MetaFlow):
+class Agent(MetaFlow):
     llm = OpenAI(model="gpt-4o")
     # llm = Bedrock(
     #     model = "anthropic.claude-3-5-sonnet-20241022-v2:0",
@@ -57,7 +57,7 @@ class SingleQueryAgent(MetaFlow):
     @step
     async def process_image(self, ctx: Context, ev: KeywordsEvent) -> ImageAnalysisEvent:
         kws = eval(ev.keywords)
-        owlans = owlvit([kws], "boat.png")
+        owlans = owlvit([kws], ["boat.png"])
         imgevent = ImageAnalysisEvent(query=ev.query, analysis=str(owlans))
         ctx.write_event_to_stream(imgevent)
         return imgevent

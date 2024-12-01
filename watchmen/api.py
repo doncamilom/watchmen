@@ -1,35 +1,19 @@
 
+import io
+import base64
+import numpy as np
+from typing import List
+from PIL import Image, ImageDraw, ImageFont
+import matplotlib.pyplot as plt
 from fastapi import FastAPI, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
 import asyncio
 from typing import Dict
-# from watchmen.agents.agent import Agent
+from watchmen.agents.agent import Agent
+from watchmen.agents.a2 import TimeAgent
 from watchmen.logging_config import setup_logger
-from llama_index.agent.openai import OpenAIAgent
-from llama_index.core.tools import FunctionTool
-from watchmen.agents.agent import iAgent, SingleQueryAgent
-from typing import Any
-
-
-import nest_asyncio
-nest_asyncio.apply()
-
-sqa = SingleQueryAgent(timeout=60, verbose=False)
-
-async def find_bounding_boxes(query):
-    """Identify relevant objects in the image. This tool is always used before the image analysis tool."""
-    response = await sqa.irun(query=query)
-    return response['response']
-
-tools = [
-    FunctionTool.from_defaults(
-        async_fn=find_bounding_boxes,
-    ),
-]
-
-agent = iAgent.from_tools(tools, verbose=True)
-
+from watchmen.tools import get_snapshot
 
 app = FastAPI()
 
@@ -58,12 +42,39 @@ async def analyze_image(data: AnalysisRequest) -> Dict[str, str]:
         query = data.require.query
         request_data = data.require.data
 
-        result = agent.ichat(query = query, metadata=request_data)
+        # Ignore image for now
+        result['results'].pop("image", None)
 
         return {"result": str(result)}
     except Exception as e:
         logger.error(f"Error processing request: {str(e)}")
         raise HTTPException(status_code=500, detail="Internal server error")
+
+
+@app.post("/select_images")
+async def select_images(query: Query) -> Dict[str, List[str]]:
+    logger = setup_logger()
+    try:
+        tima = TimeAgent(timeout=60, verbose=False)
+        result = await tima.irun(query=query.query)
+
+        def encode_image(image_path: str) -> str:
+            buffered = io.BytesIO()
+            image.save(buffered, format="PNG")
+            img_str = base64.b64encode(buffered.getvalue())
+            base64_string = img_str.decode('utf-8')
+            return base64_string
+
+        all_imgs = []
+        for im in eval(result['response']):
+            image = get_snapshot(im)
+            b64img = encode_image(image)
+            all_imgs.append(b64img)
+
+        return {"result": all_imgs}
+    except Exception as e:
+        logger.error(f"Error processing request: {str(e)}")
+        raise HTTPException(status_code=500, detail=str(e))
 
 if __name__ == "__main__":
     import uvicorn
