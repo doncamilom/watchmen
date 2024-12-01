@@ -8,25 +8,27 @@ from typing import Dict
 from watchmen.logging_config import setup_logger
 from llama_index.agent.openai import OpenAIAgent
 from llama_index.core.tools import FunctionTool
-from watchmen.agents.agent import SingleQueryAgent
+from watchmen.agents.agent import iAgent, SingleQueryAgent
+from typing import Any
+
 
 import nest_asyncio
 nest_asyncio.apply()
 
-
 sqa = SingleQueryAgent(timeout=60, verbose=False)
 
-async def toolwrap(query):
+async def find_bounding_boxes(query):
+    """Identify relevant objects in the image. This tool is always used before the image analysis tool."""
     response = await sqa.irun(query=query)
     return response['response']
 
 tools = [
     FunctionTool.from_defaults(
-        async_fn=toolwrap,
-    )
+        async_fn=find_bounding_boxes,
+    ),
 ]
 
-agent = OpenAIAgent.from_tools(tools, verbose=True)
+agent = iAgent.from_tools(tools, verbose=True)
 
 
 app = FastAPI()
@@ -40,17 +42,23 @@ app.add_middleware(
     allow_headers=["*"],  # Allows all headers
 )
 
-class Query(BaseModel):
+class RequireData(BaseModel):
     query: str
+    data: Dict[str, Any]
+
+class AnalysisRequest(BaseModel):
+    require: RequireData
 
 @app.post("/analyze_image")
-async def analyze_image(query: Query) -> Dict[str, str]:
+async def analyze_image(data: AnalysisRequest) -> Dict[str, str]:
     logger = setup_logger()
     try:
-        result = agent.chat(query.query)
+        # Extract the query and request data
+        logger.info(f"Received request: {data}")
+        query = data.require.query
+        request_data = data.require.data
 
-        # Ignore image for now
-        # result['results'].pop("image", None)
+        result = agent.ichat(query = query, metadata=request_data)
 
         return {"result": str(result)}
     except Exception as e:
