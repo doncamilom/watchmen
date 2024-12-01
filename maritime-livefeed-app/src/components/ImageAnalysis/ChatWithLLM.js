@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from 'react';
-import { Paper, Typography } from '@mui/material';
+import { Paper, Typography, Button } from '@mui/material';
 import ConversationMessages from './ConversationMessages';
 import ChatInput from './ChatInput';
 import VesselContext from './VesselContext';
+import ImageCarousel from './ImageCarousel';
 import { generateSuggestions, parseResponse } from './utils/chatUtils';
 import { getColor } from './utils/colors';
 
@@ -11,6 +12,7 @@ const ChatWithLLM = ({ onResponse, selectedLabel, imageData, vesselData, maritim
   const [conversation, setConversation] = useState([]);
   const [loading, setLoading] = useState(false);
   const [suggestions, setSuggestions] = useState([]);
+  const [showCarousel, setShowCarousel] = useState(false);
 
   useEffect(() => {
     const newSuggestions = generateSuggestions(selectedLabel, imageData, vesselData);
@@ -173,27 +175,56 @@ const ChatWithLLM = ({ onResponse, selectedLabel, imageData, vesselData, maritim
       p: 2,
       height: '100%',
       display: 'flex',
-      flexDirection: 'column'
+      flexDirection: 'column',
+      gap: 2
     }}>
       <Typography variant="h6" gutterBottom>
         Maritime Analysis Assistant
       </Typography>
 
-      <VesselContext 
-        selectedLabel={selectedLabel} 
-        vesselData={vesselData}
-      />
-      <ConversationMessages conversation={conversation} />
-      <ChatInput 
-        query={query}
-        suggestions={suggestions}
-        loading={loading}
-        selectedLabel={selectedLabel}
-        vesselData={vesselData}
-        onQueryChange={setQuery}
-        onSubmit={handleQuery}
-        onKeyPress={handleKeyPress}
-      />
+      <Button 
+        variant="contained"
+        size="small"
+        onClick={() => setShowCarousel(!showCarousel)}
+        sx={{ alignSelf: 'flex-start', mb: 1 }}
+      >
+        {showCarousel ? 'Hide Image Gallery' : 'Show Image Gallery'}
+      </Button>
+
+      {showCarousel && (
+        <div style={{ marginBottom: 16 }}>
+          <ImageCarousel />
+        </div>
+      )}
+
+      <Paper elevation={1} sx={{ 
+        p: 2,
+        flex: 1,
+        display: 'flex',
+        flexDirection: 'column',
+        gap: 2,
+        bgcolor: 'background.default'
+      }}>
+        <VesselContext 
+          selectedLabel={selectedLabel} 
+          vesselData={vesselData}
+        />
+        
+        <div style={{ flexGrow: 1, overflow: 'auto' }}>
+          <ConversationMessages conversation={conversation} />
+        </div>
+
+        <ChatInput 
+          query={query}
+          suggestions={suggestions}
+          loading={loading}
+          selectedLabel={selectedLabel}
+          vesselData={vesselData}
+          onQueryChange={setQuery}
+          onSubmit={handleQuery}
+          onKeyPress={handleKeyPress}
+        />
+      </Paper>
     </Paper>
   );
 };
