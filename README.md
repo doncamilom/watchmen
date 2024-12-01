@@ -1,5 +1,8 @@
 # Seas the Day
 
+![Seas the Day Demo](imgs/tiny.png)
+
+
 **Seas the Day** transforms maritime tracking and analysis, making port data interactive, insightful, and accessible.
 
 ## Key Features
