@@ -1,38 +1,63 @@
-// src/pages/CityStatsPage.js
-import React from 'react';
+import React, { useState } from 'react';
 import { useParams } from 'react-router-dom';
-import { Box, Typography, Paper } from '@mui/material';
+import { Box, Typography, Tabs, Tab } from '@mui/material';
+import DescriptiveStats from './DescriptiveStats';
+import ImageAnalysis from './ImageAnalysis';
+
+const TabPanel = ({ children, value, index, ...other }) => (
+  <div
+    role="tabpanel"
+    hidden={value !== index}
+    id={`city-tabpanel-${index}`}
+    aria-labelledby={`city-tab-${index}`}
+    {...other}
+  >
+    {value === index && (
+      <Box sx={{ width: '100%' }}>
+        {children}
+      </Box>
+    )}
+  </div>
+);
 
 const CityStatsPage = () => {
   const { cityName } = useParams();
+  const [tabValue, setTabValue] = useState(0);
 
-  // Placeholder for city data - you would replace this with an API request.
-  const cityStats = {
-    london: { shipsPassed: 1500, cargoTypes: ['Oil', 'Containers', 'Food'] },
-    'new-york': { shipsPassed: 2000, cargoTypes: ['Vehicles', 'Electronics', 'Containers'] },
-    // Add data for the other cities here...
+  const handleTabChange = (event, newValue) => {
+    setTabValue(newValue);
   };
 
-  const stats = cityStats[cityName.toLowerCase()] || { shipsPassed: 0, cargoTypes: [] };
-
   return (
-    <Box mt={5}>
-      <Typography variant="h4" gutterBottom>
+    <Box sx={{ 
+      width: '100%',
+      maxWidth: '100%',
+      px: { xs: 2, sm: 3, md: 4 },
+      py: 3
+    }}>
+      <Typography variant="h4" gutterBottom sx={{ mb: 3 }}>
         {cityName} Maritime Statistics
       </Typography>
-      <Paper elevation={3} sx={{ p: 3 }}>
-        <Typography variant="h6">
-          Number of Ships Passed: {stats.shipsPassed}
-        </Typography>
-        <Typography variant="h6" mt={2}>
-          Types of Cargo:
-        </Typography>
-        <ul>
-          {stats.cargoTypes.map((type, index) => (
-            <li key={index}>{type}</li>
-          ))}
-        </ul>
-      </Paper>
+
+      <Box sx={{ 
+        width: '100%',
+        maxWidth: '100%'
+      }}>
+        <Box sx={{ borderBottom: 1, borderColor: 'divider', mb: 2 }}>
+          <Tabs value={tabValue} onChange={handleTabChange}>
+            <Tab label="Descriptive Summary" />
+            <Tab label="Image Analysis" />
+          </Tabs>
+        </Box>
+
+        <TabPanel value={tabValue} index={0}>
+          <DescriptiveStats cityName={cityName} />
+        </TabPanel>
+        
+        <TabPanel value={tabValue} index={1}>
+          <ImageAnalysis cityName={cityName} />
+        </TabPanel>
+      </Box>
     </Box>
   );
 };

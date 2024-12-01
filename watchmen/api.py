@@ -26,15 +26,21 @@ app.add_middleware(
     allow_headers=["*"],  # Allows all headers
 )
 
-class Query(BaseModel):
+class RequireData(BaseModel):
     query: str
+    data: Dict[str, Any]
+
+class AnalysisRequest(BaseModel):
+    require: RequireData
 
 @app.post("/analyze_image")
-async def analyze_image(query: Query) -> Dict[str, str]:
+async def analyze_image(data: AnalysisRequest) -> Dict[str, str]:
     logger = setup_logger()
     try:
-        w = Agent(timeout=60, verbose=False)
-        result = await w.irun(query=query.query)
+        # Extract the query and request data
+        logger.info(f"Received request: {data}")
+        query = data.require.query
+        request_data = data.require.data
 
         # Ignore image for now
         result['results'].pop("image", None)

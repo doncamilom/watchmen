@@ -66,7 +66,6 @@ class TimeAgent(MetaFlow):
 
         logger.warning(f"Executing the following code: {code}")
 
-        
         exec(code, locals())
 
         return QueryImagesEvent(
@@ -89,3 +88,4 @@ if __name__ == "__main__":
     import asyncio
     out = asyncio.run(main())
     print(out['response'])
+
