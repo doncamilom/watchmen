@@ -9,20 +9,34 @@ import { getColor } from '../components/ImageAnalysis/utils/colors';
 
 const ImageAnalysis = ({ cityName }) => {
   const [imageData, setImageData] = useState(null);
+  const [maritimeData, setMaritimeData] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
   const [selectedLabel, setSelectedLabel] = useState(null);
+  const [selectedVessel, setSelectedVessel] = useState(null);
 
+  // Fetch both image analysis and maritime data
   useEffect(() => {
-    const fetchImageAnalysis = async () => {
+    const fetchData = async () => {
       try {
         setLoading(true);
-        const response = await fetch('/backend_result.json');
-        if (!response.ok) {
+        
+        // Fetch image analysis data
+        const imageResponse = await fetch('/backend_result.json');
+        if (!imageResponse.ok) {
           throw new Error('Failed to fetch image analysis');
         }
-        const data = await response.json();
-        setImageData(data);
+        const imageResult = await imageResponse.json();
+        
+        // Fetch maritime data
+        const maritimeResponse = await fetch('/maritime_data.json');
+        if (!maritimeResponse.ok) {
+          throw new Error('Failed to fetch maritime data');
+        }
+        const maritimeResult = await maritimeResponse.json();
+        
+        setImageData(imageResult);
+        setMaritimeData(maritimeResult);
       } catch (err) {
         setError(err.message);
       } finally {
@@ -30,8 +44,29 @@ const ImageAnalysis = ({ cityName }) => {
       }
     };
 
-    fetchImageAnalysis();
+    fetchData();
   }, [cityName]);
+
+  // Update selected vessel when label or maritime data changes
+  useEffect(() => {
+    if (selectedLabel && maritimeData && Array.isArray(maritimeData)) {
+      const cityVessels = maritimeData.filter(vessel => {
+        const depPort = vessel.dep_port?.toString().toUpperCase() || '';
+        const destPort = vessel.dest_port?.toString().toUpperCase() || '';
+        const searchCity = cityName.toString().toUpperCase();
+        return depPort === searchCity || destPort === searchCity;
+      });
+
+      if (cityVessels.length > 0) {
+        const randomVessel = cityVessels[Math.floor(Math.random() * cityVessels.length)];
+        setSelectedVessel(randomVessel);
+      } else {
+        setSelectedVessel(null);
+      }
+    } else {
+      setSelectedVessel(null);
+    }
+  }, [selectedLabel, maritimeData, cityName]);
 
   const handleBoxClick = (result, index) => {
     setSelectedLabel({ ...result, color: getColor(index), index });
@@ -100,7 +135,10 @@ const ImageAnalysis = ({ cityName }) => {
                 </Grid>
 
                 <Grid item xs={12} md={5}>
-                  <SelectedLabelCard selectedLabel={selectedLabel} />
+                  <SelectedLabelCard 
+                    selectedLabel={selectedLabel} 
+                    vesselData={selectedVessel}
+                  />
                 </Grid>
               </Grid>
             </>
@@ -114,6 +152,8 @@ const ImageAnalysis = ({ cityName }) => {
           onResponse={handleLLMResponse}
           selectedLabel={selectedLabel}
           imageData={imageData}
+          vesselData={selectedVessel}
+          maritimeData={maritimeData}
         />
       </Box>
     </Box>

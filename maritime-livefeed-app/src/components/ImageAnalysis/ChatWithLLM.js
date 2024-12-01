@@ -1,59 +1,109 @@
-import React, { useState } from 'react';
-import { Box, TextField, Button, Typography, Paper } from '@mui/material';
-import SendIcon from '@mui/icons-material/Send';
+import React, { useState, useEffect } from 'react';
+import { Paper, Typography } from '@mui/material';
+import ConversationMessages from './ConversationMessages';
+import ChatInput from './ChatInput';
+import VesselContext from './VesselContext';
+import { generateSuggestions, parseResponse } from './utils/chatUtils';
 
-const ChatWithLLM = ({ onResponse, selectedLabel, imageData }) => {
+const ChatWithLLM = ({ onResponse, selectedLabel, imageData, vesselData, maritimeData }) => {
   const [query, setQuery] = useState('');
   const [conversation, setConversation] = useState([]);
   const [loading, setLoading] = useState(false);
+  const [suggestions, setSuggestions] = useState([]);
+
+  useEffect(() => {
+    setSuggestions(generateSuggestions(selectedLabel, imageData, vesselData));
+  }, [selectedLabel, imageData, vesselData]);
 
   const handleQuery = async () => {
     if (!query.trim()) return;
     setLoading(true);
 
     try {
-      // Add context about selected label and image data to the query
-      const contextData = {
-        query,
-        selectedObject: selectedLabel,
-        allDetections: imageData?.results || [],
-        timestamp: new Date().toISOString(),
+      // Extract box coordinates and vessel information
+      const box = selectedLabel?.box || null;
+
+      // Create request body with validated data including vessel information
+      const requestBody = {
+        query: query,
+        box: box,
+        confidence: selectedLabel?.confidence || null,
+        vessel_type: selectedLabel?.label || null,
+        total_vessels: imageData?.results?.length || 0,
+        vessel_index: selectedLabel?.index || null,
+        // Add vessel-specific information
+        vessel_details: vesselData ? {
+          name: vesselData.name || null,
+          type: vesselData.type || null,
+          type_specific: vesselData.type_specific || null,
+          isotype: vesselData.isotype || null,
+          departure_port: vesselData.dep_port || null,
+          destination_port: vesselData.dest_port || null,
+          latitude: vesselData.lat || null,
+          longitude: vesselData.lon || null
+        } : null,
+        // Add summary of all vessels in the port
+        port_statistics: maritimeData ? {
+          total_vessels_in_port: maritimeData.length,
+          vessel_types: countVesselTypes(maritimeData),
+        } : null
       };
 
-      const response = await fetch('http://localhost:5000/api/llm-query', {
+      console.log('Sending request:', requestBody);
+
+      const response = await fetch('http://liacpc3.epfl.ch:9178/analyze_image', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify(contextData),
+        body: JSON.stringify(requestBody)
       });
-      
-      const data = await response.json();
 
-      // Add to conversation
+      if (!response.ok) {
+        throw new Error(`HTTP error! status: ${response.status}`);
+      }
+
+      const data = await response.json();
+      console.log('Received response:', data);
+      
+      const responseText = parseResponse(data);
+      console.log('Parsed response:', responseText);
+      
       const newMessages = [
         { role: 'user', content: query },
-        { role: 'assistant', content: data.response }
+        { role: 'assistant', content: responseText }
       ];
       
       setConversation(prev => [...prev, ...newMessages]);
-
-      // Pass response to parent for potential image updates
-      if (data.updates) {
-        onResponse(data.updates);
-      }
-
       setQuery('');
+      
+      if (onResponse) {
+        onResponse(responseText);
+      }
     } catch (error) {
-      console.error('Error fetching LLM response:', error);
+      console.error('Error in handleQuery:', error);
       setConversation(prev => [
         ...prev,
         { role: 'user', content: query },
-        { role: 'assistant', content: 'Sorry, there was an error processing your request.' }
+        { 
+          role: 'assistant', 
+          content: 'Sorry, there was an error processing your request. Please try again.' 
+        }
       ]);
     } finally {
       setLoading(false);
     }
+  };
+
+  // Helper function to count vessel types in the maritime data
+  const countVesselTypes = (data) => {
+    if (!Array.isArray(data)) return {};
+    
+    return data.reduce((acc, vessel) => {
+      const type = vessel.type || 'Unknown';
+      acc[type] = (acc[type] || 0) + 1;
+      return acc;
+    }, {});
   };
 
   const handleKeyPress = (e) => {
@@ -74,78 +124,21 @@ const ChatWithLLM = ({ onResponse, selectedLabel, imageData }) => {
         Maritime Analysis Assistant
       </Typography>
 
-      {/* Context Information */}
-      {selectedLabel && (
-        <Box sx={{ mb: 2, p: 1, backgroundColor: 'rgba(0,0,0,0.04)', borderRadius: 1 }}>
-          <Typography variant="caption" color="text.secondary">
-            Currently analyzing: {selectedLabel.label} (Confidence: {(selectedLabel.confidence * 100).toFixed(1)}%)
-          </Typography>
-        </Box>
-      )}
-
-      {/* Conversation History */}
-      <Box sx={{ 
-        flexGrow: 1,
-        overflowY: 'auto',
-        mb: 2,
-        p: 2,
-        border: '1px solid #eee',
-        borderRadius: '4px',
-        backgroundColor: '#fafafa'
-      }}>
-        {conversation.map((message, index) => (
-          <Box 
-            key={index} 
-            sx={{ 
-              mb: 1,
-              p: 1,
-              backgroundColor: message.role === 'user' ? 'white' : '#f0f7ff',
-              borderRadius: 1,
-              maxWidth: '90%',
-              ml: message.role === 'user' ? 'auto' : 0,
-              mr: message.role === 'user' ? 0 : 'auto',
-            }}
-          >
-            <Typography 
-              variant="body2" 
-              sx={{ 
-                whiteSpace: 'pre-wrap',
-                wordBreak: 'break-word'
-              }}
-            >
-              {message.content}
-            </Typography>
-          </Box>
-        ))}
-      </Box>
-
-      {/* Query Input */}
-      <Box sx={{ display: 'flex', gap: 1 }}>
-        <TextField
-          fullWidth
-          multiline
-          maxRows={4}
-          placeholder="Ask about the maritime analysis..."
-          variant="outlined"
-          value={query}
-          onChange={(e) => setQuery(e.target.value)}
-          onKeyPress={handleKeyPress}
-          sx={{ 
-            '& .MuiOutlinedInput-root': {
-              backgroundColor: 'white'
-            }
-          }}
-        />
-        <Button 
-          variant="contained" 
-          color="primary" 
-          onClick={handleQuery} 
-          disabled={!query.trim() || loading}
-          sx={{ minWidth: '56px', height: '56px' }}
-        >
-          <SendIcon />
-        </Button>
-      </Box>
+      <VesselContext 
+        selectedLabel={selectedLabel} 
+        vesselData={vesselData}
+      />
+      <ConversationMessages conversation={conversation} />
+      <ChatInput 
+        query={query}
+        suggestions={suggestions}
+        loading={loading}
+        selectedLabel={selectedLabel}
+        vesselData={vesselData}
+        onQueryChange={setQuery}
+        onSubmit={handleQuery}
+        onKeyPress={handleKeyPress}
+      />
     </Paper>
   );
 };

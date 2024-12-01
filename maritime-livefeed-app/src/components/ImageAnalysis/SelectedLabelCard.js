@@ -1,7 +1,7 @@
 import React from 'react';
-import { Card, CardContent, Typography, Box } from '@mui/material';
+import { Card, CardContent, Typography, Box, Divider } from '@mui/material';
 
-const SelectedLabelCard = ({ selectedLabel }) => {
+const SelectedLabelCard = ({ selectedLabel, vesselData }) => {
   if (!selectedLabel) {
     return (
       <Card elevation={2}>
@@ -23,8 +23,51 @@ const SelectedLabelCard = ({ selectedLabel }) => {
         }}>
           {selectedLabel.label.toUpperCase()}
         </Typography>
+
+        {/* Vessel Information Section */}
+        {vesselData && (
+          <Box sx={{ mt: 2 }}>
+            <Typography variant="h6" gutterBottom>
+              Vessel Information
+            </Typography>
+            <Box sx={{ ml: 2 }}>
+              <Typography variant="body2" gutterBottom>
+                <strong>Name:</strong> {vesselData.name}
+              </Typography>
+              <Typography variant="body2" gutterBottom>
+                <strong>Type:</strong> {vesselData.type || 'N/A'}
+              </Typography>
+              {vesselData.type_specific && (
+                <Typography variant="body2" gutterBottom>
+                  <strong>Specific Type:</strong> {vesselData.type_specific}
+                </Typography>
+              )}
+              {vesselData.isotype && (
+                <Typography variant="body2" gutterBottom>
+                  <strong>ISO Type:</strong> {vesselData.isotype}
+                </Typography>
+              )}
+              <Typography variant="body2" gutterBottom>
+                <strong>Route:</strong> {vesselData.dep_port || 'Unknown'} → {vesselData.dest_port || 'Unknown'}
+              </Typography>
+              {vesselData.lat && vesselData.lon && (
+                <Typography variant="body2" gutterBottom>
+                  <strong>Position:</strong> {vesselData.lat}, {vesselData.lon}
+                </Typography>
+              )}
+            </Box>
+          </Box>
+        )}
+
+        {/* Divider between sections */}
+        <Divider sx={{ my: 2 }} />
         
-        <Box sx={{ mt: 2 }}>
+        {/* Detection Details Section */}
+        <Box>
+          <Typography variant="h6" gutterBottom>
+            Detection Details
+          </Typography>
+          
           <Typography variant="body1" gutterBottom>
             <strong>Confidence Score:</strong> {(selectedLabel.confidence * 100).toFixed(1)}%
           </Typography>
