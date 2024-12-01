@@ -15,7 +15,7 @@ load_dotenv()
 
 
 from watchmen.tools import owlvit
-from .base import ImageAnalysisEvent, MetaFlow
+from base import ImageAnalysisEvent, MetaFlow
 
 import os
 from PIL import Image
@@ -28,15 +28,15 @@ class KeywordsEvent(Event):
     keywords: str
 
 
-class Agent(MetaFlow):
-    # llm = OpenAI(model="gpt-4o")
-    llm = Bedrock(
-        model = "anthropic.claude-3-5-sonnet-20241022-v2:0",
-        aws_access_key_id=os.getenv("AWS_ACCESS_KEY_ID"),
-        aws_secret_access_key=os.getenv("AWS_SECRET_ACCESS_KEY"),
-        aws_session_token=os.getenv("AWS_SESSION_TOKEN"),
-        region_name=os.getenv("AWS_DEFAULT_REGION"),
-    )
+class SingleQueryAgent(MetaFlow):
+    llm = OpenAI(model="gpt-4o")
+    # llm = Bedrock(
+    #     model = "anthropic.claude-3-5-sonnet-20241022-v2:0",
+    #     aws_access_key_id=os.getenv("AWS_ACCESS_KEY_ID"),
+    #     aws_secret_access_key=os.getenv("AWS_SECRET_ACCESS_KEY"),
+    #     aws_session_token=os.getenv("AWS_SESSION_TOKEN"),
+    #     region_name=os.getenv("AWS_DEFAULT_REGION"),
+    # )
 
     @step
     async def kw_extract(self, ev: StartEvent) -> KeywordsEvent:
@@ -76,14 +76,33 @@ class Agent(MetaFlow):
 
         response = self.llm.complete(prompt)
         return StopEvent(result=str(response))
-            
-async def main():
-    agent = Agent(timeout=60, verbose=False)
-    result = await agent.irun(query="how many streams of steam are in this picture?")
-    return result
+
+
+# This agent just does a single query.
+# Make another one that uses this as a tool, but is a chatbot.
+
+from llama_index.agent.openai import OpenAIAgent
+# from llama_index.core.agent.openai import OpenAIAgent
+from llama_index.core.tools import FunctionTool
+
+sqa = SingleQueryAgent(timeout=60, verbose=False)
+
+async def toolwrap(query):
+    response = await sqa.irun(query=query)
+    return response['response']
+
+tools = [
+    FunctionTool.from_defaults(
+        async_fn=toolwrap,
+    )
+]
+
+agent = OpenAIAgent.from_tools(tools, verbose=True)
 
 if __name__ == "__main__":
-    import asyncio
-    out = asyncio.run(main())
-    print(out['response'])
-    print(out['results']['results'])
+    inp = input("User: ")
+
+    while inp != "exit":
+        response = agent.chat(inp)
+        print(f"Bot: {str(response)}")
+        inp = input("User: ")
