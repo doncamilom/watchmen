@@ -6,6 +6,7 @@ import torch
 from transformers import Owlv2Processor, Owlv2ForObjectDetection
 from typing import List
 import numpy as np
+import base64
 
 app = FastAPI()
 
@@ -31,6 +32,14 @@ def process_img(image, texts: List[str]):
     boxes, scores, labels = results[i]["boxes"], results[i]["scores"], results[i]["labels"]
     return boxes, scores, labels
 
+
+def encode_image(image: Image) -> str:
+    buffered = io.BytesIO()
+    image.save(buffered, format="PNG")
+    img_str = base64.b64encode(buffered.getvalue())
+    base64_string = img_str.decode('utf-8')
+    return base64_string
+
 @app.post("/detect_objects/")
 async def detect_objects(
     file: UploadFile = File(...),
@@ -40,6 +49,7 @@ async def detect_objects(
     # Read and process the uploaded image
     contents = await file.read()
     image = Image.open(io.BytesIO(contents)).convert('RGB')
+    b64img = encode_image(image)
 
     # Process the texts
     texts = eval(texts)  # Convert string representation of list to actual list
@@ -58,7 +68,7 @@ async def detect_objects(
                 "box": box
             })
 
-    return JSONResponse(content={"results": results})
+    return JSONResponse(content={"results": results, "image": b64img})
 
 if __name__ == "__main__":
     import uvicorn
