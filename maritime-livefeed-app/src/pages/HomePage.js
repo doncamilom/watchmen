@@ -26,14 +26,14 @@ const HomePage = () => {
   return (
     <Box textAlign="center" mt={5}>
       <Typography variant="h3" gutterBottom>
-        Welcome to Maritime Live Feed Tracker
+        Welcome to "Seas the Day"
       </Typography>
       <Typography variant="body1" gutterBottom>
         Monitor live maritime data and get real-time insights with AI.
       </Typography>
 
       {/* Interactive Map */}
-      <InteractiveMap />
+      <InteractiveMap cityData={cityData} />
 
       {/* Buttons for Different Cities */}
       <Box mt={5}>

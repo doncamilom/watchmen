@@ -15,14 +15,13 @@ export const generateSuggestions = (selectedLabel, imageData) => {
   
   if (imageData?.results?.length > 0) {
     return [
-      `How many vessels are visible in this image?`,
+      `How many boats/ships are visible in this image?`,
       "What types of maritime activities are occurring?",
       "Are there any safety concerns in this scene?",
       "What are the weather and visibility conditions?",
       "Can you identify any port infrastructure?",
-      "Are the vessels properly spaced and positioned?",
       "What maritime traffic patterns are visible?",
-      "Are there any unusual or noteworthy observations?"
+      "What kinds of wildlife (e.g, birds) can be observed in the image?"
     ];
   }
 

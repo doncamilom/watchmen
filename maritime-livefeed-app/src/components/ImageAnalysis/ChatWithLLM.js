@@ -4,6 +4,7 @@ import ConversationMessages from './ConversationMessages';
 import ChatInput from './ChatInput';
 import VesselContext from './VesselContext';
 import { generateSuggestions, parseResponse } from './utils/chatUtils';
+import { getColor } from './utils/colors';
 
 const ChatWithLLM = ({ onResponse, selectedLabel, imageData, vesselData, maritimeData, allLabels }) => {
   const [query, setQuery] = useState('');
@@ -114,21 +115,43 @@ const ChatWithLLM = ({ onResponse, selectedLabel, imageData, vesselData, maritim
 
       const data = await response.json();
       console.log('Received response:', data);
-      
-      const responseText = parseResponse(data);
-      console.log('Parsed response:', responseText);
-      
+
+      // Handle the message part first
+      const responseText = data.message || parseResponse(data);
       const newMessages = [
         { role: 'user', content: query },
         { role: 'assistant', content: responseText }
       ];
       
       setConversation(prev => [...prev, ...newMessages]);
-      setQuery('');
-      
-      if (onResponse) {
-        onResponse(responseText);
+
+      // Handle UI updates if action is true
+      if (data.action && data.updates) {
+        const { boxes, selectedIndex } = data.updates;
+        
+        if (boxes) {
+          const updatedBoxes = boxes.map((box, index) => ({
+            ...box,
+            color: getColor(index)
+          }));
+
+          const updates = { boxes: updatedBoxes };
+
+          // Add selected label if specified
+          if (selectedIndex !== undefined && updatedBoxes[selectedIndex]) {
+            updates.selectedLabel = {
+              ...updatedBoxes[selectedIndex],
+              index: selectedIndex,
+              color: getColor(selectedIndex)
+            };
+          }
+
+          // Trigger UI update
+          onResponse(updates);
+        }
       }
+
+      setQuery('');
     } catch (error) {
       console.error('Error in handleQuery:', error);
       setConversation(prev => [
