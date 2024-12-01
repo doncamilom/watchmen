@@ -16,6 +16,6 @@ class MetaFlow(Workflow):
         result = await handler
 
         return {
-            "results": eval(intermeds['image_analysis']),
+            "results": eval(intermeds['image_analysis']) if 'image_analysis' in intermeds else {},
             "response": result
         }

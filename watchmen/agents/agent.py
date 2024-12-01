@@ -29,14 +29,14 @@ class KeywordsEvent(Event):
 
 
 class Agent(MetaFlow):
-    # llm = OpenAI(model="gpt-4o")
-    llm = Bedrock(
-        model = "anthropic.claude-3-5-sonnet-20241022-v2:0",
-        aws_access_key_id=os.getenv("AWS_ACCESS_KEY_ID"),
-        aws_secret_access_key=os.getenv("AWS_SECRET_ACCESS_KEY"),
-        aws_session_token=os.getenv("AWS_SESSION_TOKEN"),
-        region_name=os.getenv("AWS_DEFAULT_REGION"),
-    )
+    llm = OpenAI(model="gpt-4o")
+    # llm = Bedrock(
+    #     model = "anthropic.claude-3-5-sonnet-20241022-v2:0",
+    #     aws_access_key_id=os.getenv("AWS_ACCESS_KEY_ID"),
+    #     aws_secret_access_key=os.getenv("AWS_SECRET_ACCESS_KEY"),
+    #     aws_session_token=os.getenv("AWS_SESSION_TOKEN"),
+    #     region_name=os.getenv("AWS_DEFAULT_REGION"),
+    # )
 
     @step
     async def kw_extract(self, ev: StartEvent) -> KeywordsEvent:
@@ -57,7 +57,7 @@ class Agent(MetaFlow):
     @step
     async def process_image(self, ctx: Context, ev: KeywordsEvent) -> ImageAnalysisEvent:
         kws = eval(ev.keywords)
-        owlans = owlvit([kws], "boat.png")
+        owlans = owlvit([kws], ["boat.png"])
         imgevent = ImageAnalysisEvent(query=ev.query, analysis=str(owlans))
         ctx.write_event_to_stream(imgevent)
         return imgevent

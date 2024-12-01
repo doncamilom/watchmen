@@ -1,11 +1,19 @@
 
+import io
+import base64
+import numpy as np
+from typing import List
+from PIL import Image, ImageDraw, ImageFont
+import matplotlib.pyplot as plt
 from fastapi import FastAPI, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
 import asyncio
 from typing import Dict
 from watchmen.agents.agent import Agent
+from watchmen.agents.a2 import TimeAgent
 from watchmen.logging_config import setup_logger
+from watchmen.tools import get_snapshot
 
 app = FastAPI()
 
@@ -29,12 +37,38 @@ async def analyze_image(query: Query) -> Dict[str, str]:
         result = await w.irun(query=query.query)
 
         # Ignore image for now
-        # result['results'].pop("image", None)
+        result['results'].pop("image", None)
 
         return {"result": str(result)}
     except Exception as e:
         logger.error(f"Error processing request: {str(e)}")
         raise HTTPException(status_code=500, detail="Internal server error")
+
+
+@app.post("/select_images")
+async def select_images(query: Query) -> Dict[str, List[str]]:
+    logger = setup_logger()
+    try:
+        tima = TimeAgent(timeout=60, verbose=False)
+        result = await tima.irun(query=query.query)
+
+        def encode_image(image_path: str) -> str:
+            buffered = io.BytesIO()
+            image.save(buffered, format="PNG")
+            img_str = base64.b64encode(buffered.getvalue())
+            base64_string = img_str.decode('utf-8')
+            return base64_string
+
+        all_imgs = []
+        for im in eval(result['response']):
+            image = get_snapshot(im)
+            b64img = encode_image(image)
+            all_imgs.append(b64img)
+
+        return {"result": all_imgs}
+    except Exception as e:
+        logger.error(f"Error processing request: {str(e)}")
+        raise HTTPException(status_code=500, detail=str(e))
 
 if __name__ == "__main__":
     import uvicorn
