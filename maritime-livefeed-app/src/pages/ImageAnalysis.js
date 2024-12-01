@@ -14,8 +14,8 @@ const ImageAnalysis = ({ cityName }) => {
   const [error, setError] = useState(null);
   const [selectedLabel, setSelectedLabel] = useState(null);
   const [selectedVessel, setSelectedVessel] = useState(null);
+  const [allLabels, setAllLabels] = useState([]);
 
-  // Fetch both image analysis and maritime data
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -37,6 +37,16 @@ const ImageAnalysis = ({ cityName }) => {
         
         setImageData(imageResult);
         setMaritimeData(maritimeResult);
+
+        // Process all labels
+        if (imageResult && imageResult.results) {
+          const processedLabels = imageResult.results.map((result, index) => ({
+            ...result,
+            color: getColor(index),
+            index
+          }));
+          setAllLabels(processedLabels);
+        }
       } catch (err) {
         setError(err.message);
       } finally {
@@ -47,7 +57,6 @@ const ImageAnalysis = ({ cityName }) => {
     fetchData();
   }, [cityName]);
 
-  // Update selected vessel when label or maritime data changes
   useEffect(() => {
     if (selectedLabel && maritimeData && Array.isArray(maritimeData)) {
       const cityVessels = maritimeData.filter(vessel => {
@@ -59,7 +68,12 @@ const ImageAnalysis = ({ cityName }) => {
 
       if (cityVessels.length > 0) {
         const randomVessel = cityVessels[Math.floor(Math.random() * cityVessels.length)];
-        setSelectedVessel(randomVessel);
+        setSelectedVessel({
+          ...randomVessel,
+          current_draught: randomVessel.current_draught || 'N/A',
+          speed: randomVessel.speed || 'N/A',
+          course: randomVessel.course || 'N/A'
+        });
       } else {
         setSelectedVessel(null);
       }
@@ -78,6 +92,14 @@ const ImageAnalysis = ({ cityName }) => {
         ...prevData,
         results: updates.boxes
       }));
+      
+      // Update allLabels when boxes are updated
+      const processedLabels = updates.boxes.map((result, index) => ({
+        ...result,
+        color: getColor(index),
+        index
+      }));
+      setAllLabels(processedLabels);
     }
     
     if (updates.selectedLabel) {
@@ -103,7 +125,6 @@ const ImageAnalysis = ({ cityName }) => {
 
   return (
     <Box sx={{ display: 'flex', gap: 2 }}>
-      {/* Main Content */}
       <Box sx={{ flex: '1 1 70%' }}>
         <Paper elevation={3} sx={{ p: 3, mb: 3 }}>
           <Typography variant="h6" gutterBottom>
@@ -146,7 +167,6 @@ const ImageAnalysis = ({ cityName }) => {
         </Paper>
       </Box>
 
-      {/* Chat Panel */}
       <Box sx={{ flex: '1 1 30%', minWidth: '300px', maxWidth: '400px', height: '100vh' }}>
         <ChatWithLLM 
           onResponse={handleLLMResponse}
@@ -154,6 +174,7 @@ const ImageAnalysis = ({ cityName }) => {
           imageData={imageData}
           vesselData={selectedVessel}
           maritimeData={maritimeData}
+          allLabels={allLabels}
         />
       </Box>
     </Box>

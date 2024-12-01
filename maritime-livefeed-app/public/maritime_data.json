@@ -7,7 +7,10 @@
         "lat":48.4284,
         "lon":-123.3656,
         "dest_port":"SEATTLE",
-        "dep_port":"VANCOUVER"
+        "dep_port":"VANCOUVER",
+        "current_draught":9.8,
+        "speed":18.3,
+        "course":215
     },
     {
         "name":"OCEANIC EXPLORER",
@@ -17,7 +20,10 @@
         "lat":25.7743,
         "lon":-80.1937,
         "dest_port":"NEW YORK",
-        "dep_port":"MIAMI"
+        "dep_port":"MIAMI",
+        "current_draught":11.2,
+        "speed":12.5,
+        "course":105
     },
     {
         "name":"GLOBAL MERCHANT",
@@ -27,7 +33,10 @@
         "lat":51.5074,
         "lon":-0.1278,
         "dest_port":"ROTTERDAM",
-        "dep_port":"LONDON"
+        "dep_port":"LONDON",
+        "current_draught":14.3,
+        "speed":0.0,
+        "course":0
     },
     {
         "name":"SUNNY VENTURE",
@@ -37,7 +46,10 @@
         "lat":1.3521,
         "lon":103.8198,
         "dest_port":"HONG KONG",
-        "dep_port":"SINGAPORE"
+        "dep_port":"SINGAPORE",
+        "current_draught":9.8,
+        "speed":17.2,
+        "course":245
     },
     {
         "name":"GLOBAL MERCHANT",
@@ -47,7 +59,10 @@
         "lat":51.5074,
         "lon":-0.1278,
         "dest_port":"ROTTERDAM",
-        "dep_port":"LONDON"
+        "dep_port":"LONDON",
+        "current_draught":14.3,
+        "speed":0.0,
+        "course":0
     },
     {
         "name":"PACIFIC VOYAGER",
@@ -57,7 +72,10 @@
         "lat":35.6895,
         "lon":139.6917,
         "dest_port":"OSAKA",
-        "dep_port":"TOKYO"
+        "dep_port":"TOKYO",
+        "current_draught":9.8,
+        "speed":14.2,
+        "course":200
     },
     {
         "name":"PACIFIC VOYAGER",
@@ -67,7 +85,10 @@
         "lat":49.2827,
         "lon":-123.1207,
         "dest_port":"ANCHORAGE",
-        "dep_port":"VANCOUVER"
+        "dep_port":"VANCOUVER",
+        "current_draught":9.8,
+        "speed":14.7,
+        "course":255
     },
     {
         "name":"PACIFIC NAVIGATOR",
@@ -77,7 +98,10 @@
         "lat":35.6895,
         "lon":139.6917,
         "dest_port":"INCHEON",
-        "dep_port":"TOKYO"
+        "dep_port":"TOKYO",
+        "current_draught":8.9,
+        "speed":18.2,
+        "course":220
     },
     {
         "name":"OCEANIC EXPLORER",
@@ -87,7 +111,10 @@
         "lat":25.7743,
         "lon":-80.1937,
         "dest_port":"NEW YORK",
-        "dep_port":"MIAMI"
+        "dep_port":"MIAMI",
+        "current_draught":11.2,
+        "speed":12.5,
+        "course":105
     },
     {
         "name":"TRANSPACIFIC VOYAGER",
@@ -97,7 +124,10 @@
         "lat":22.3964,
         "lon":114.1095,
         "dest_port":"SAN FRANCISCO",
-        "dep_port":"HONG KONG"
+        "dep_port":"HONG KONG",
+        "current_draught":9.8,
+        "speed":15.2,
+        "course":270
     },
     {
         "name":"PACIFIC VOYAGER",
@@ -107,7 +137,10 @@
         "lat":35.6895,
         "lon":139.6917,
         "dest_port":"SYDNEY",
-        "dep_port":"TOKYO"
+        "dep_port":"TOKYO",
+        "current_draught":7.8,
+        "speed":18.2,
+        "course":270
     },
     {
         "name":"PACIFIC VOYAGER",
@@ -117,7 +150,10 @@
         "lat":35.6895,
         "lon":139.6917,
         "dest_port":"OSAKA",
-        "dep_port":"TOKYO"
+        "dep_port":"TOKYO",
+        "current_draught":8.7,
+        "speed":14.2,
+        "course":230
     },
     {
         "name":"SILVER LINING",
@@ -127,7 +163,10 @@
         "lat":43.65107,
         "lon":-79.347015,
         "dest_port":"LOS ANGELES",
-        "dep_port":"NEW YORK"
+        "dep_port":"NEW YORK",
+        "current_draught":8.7,
+        "speed":16.3,
+        "course":210
     },
     {
         "name":"SILVER ARROW",
@@ -137,7 +176,10 @@
         "lat":35.6895,
         "lon":139.6917,
         "dest_port":"OSAKA",
-        "dep_port":"TOKYO"
+        "dep_port":"TOKYO",
+        "current_draught":8.7,
+        "speed":18.2,
+        "course":215
     },
     {
         "name":"ATLANTIC VOYAGER",
@@ -147,7 +189,10 @@
         "lat":48.8566,
         "lon":2.3522,
         "dest_port":"ISTANBUL",
-        "dep_port":"PARIS"
+        "dep_port":"PARIS",
+        "current_draught":9.8,
+        "speed":14.2,
+        "course":245
     },
     {
         "name":"GLOBAL MERCHANT",
@@ -157,7 +202,10 @@
         "lat":51.5074,
         "lon":-0.1278,
         "dest_port":"ROTTERDAM",
-        "dep_port":"LONDON"
+        "dep_port":"LONDON",
+        "current_draught":14.3,
+        "speed":0.0,
+        "course":0
     },
     {
         "name":"ATLANTIC VOYAGER",
@@ -167,7 +215,10 @@
         "lat":43.6511,
         "lon":-79.3832,
         "dest_port":"NEW YORK",
-        "dep_port":"GLASGOW"
+        "dep_port":"GLASGOW",
+        "current_draught":9.8,
+        "speed":14.8,
+        "course":245
     },
     {
         "name":"PACIFIC VOYAGER",
@@ -177,7 +228,10 @@
         "lat":35.6895,
         "lon":139.6917,
         "dest_port":"TOKYO",
-        "dep_port":"NARITA"
+        "dep_port":"NARITA",
+        "current_draught":9.8,
+        "speed":16.2,
+        "course":245
     },
     {
         "name":"ATLANTIC VOYAGER",
@@ -187,7 +241,10 @@
         "lat":45.4215,
         "lon":-75.6972,
         "dest_port":"PARIS",
-        "dep_port":"MONTREAL"
+        "dep_port":"MONTREAL",
+        "current_draught":8.7,
+        "speed":14.2,
+        "course":215
     },
     {
         "name":"ATLANTIC VOYAGER",
@@ -197,7 +254,10 @@
         "lat":45.4215,
         "lon":-75.6972,
         "dest_port":"SEATTLE",
-        "dep_port":"HALIFAX"
+        "dep_port":"HALIFAX",
+        "current_draught":9.8,
+        "speed":15.2,
+        "course":215
     },
     {
         "name":"GLOBAL MERCHANT",
@@ -207,7 +267,10 @@
         "lat":51.5074,
         "lon":-0.1278,
         "dest_port":"ROTTERDAM",
-        "dep_port":"LONDON"
+        "dep_port":"LONDON",
+        "current_draught":14.3,
+        "speed":0.0,
+        "course":0
     },
     {
         "name":"PACIFIC VOYAGER",
@@ -217,7 +280,10 @@
         "lat":35.6895,
         "lon":139.6917,
         "dest_port":"SYDNEY",
-        "dep_port":"TOKYO"
+        "dep_port":"TOKYO",
+        "current_draught":18.7,
+        "speed":15.2,
+        "course":245
     },
     {
         "name":"PACIFIC VOYAGER",
@@ -227,7 +293,10 @@
         "lat":35.6895,
         "lon":139.6917,
         "dest_port":"SINGAPORE",
-        "dep_port":"TOKYO"
+        "dep_port":"TOKYO",
+        "current_draught":8.7,
+        "speed":18.3,
+        "course":210
     },
     {
         "name":"COASTAL TRADER",
@@ -237,7 +306,10 @@
         "lat":49.2827,
         "lon":-123.1207,
         "dest_port":"SEATTLE",
-        "dep_port":"VANCOUVER"
+        "dep_port":"VANCOUVER",
+        "current_draught":8.5,
+        "speed":10.2,
+        "course":255
     },
     {
         "name":"ATLANTIC VOYAGER",
@@ -247,7 +319,10 @@
         "lat":49.2827,
         "lon":-123.1207,
         "dest_port":"LOS ANGELES",
-        "dep_port":"VANCOUVER"
+        "dep_port":"VANCOUVER",
+        "current_draught":9.8,
+        "speed":16.2,
+        "course":215
     },
     {
         "name":"PACIFIC VOYAGER",
@@ -257,7 +332,10 @@
         "lat":35.6895,
         "lon":139.6917,
         "dest_port":"OSAKA",
-        "dep_port":"TOKYO"
+        "dep_port":"TOKYO",
+        "current_draught":9.8,
+        "speed":18.0,
+        "course":240
     },
     {
         "name":"SUNNY SAILOR",
@@ -267,7 +345,10 @@
         "lat":22.3964,
         "lon":114.1095,
         "dest_port":"SHANGHAI",
-        "dep_port":"HONG KONG"
+        "dep_port":"HONG KONG",
+        "current_draught":9.8,
+        "speed":15.2,
+        "course":210
     },
     {
         "name":"GLOBAL MERCHANT",
@@ -277,7 +358,10 @@
         "lat":51.5074,
         "lon":-0.1278,
         "dest_port":"ROTTERDAM",
-        "dep_port":"LONDON"
+        "dep_port":"LONDON",
+        "current_draught":14.3,
+        "speed":0.0,
+        "course":0
     },
     {
         "name":"PACIFIC VOYAGER",
@@ -287,7 +371,10 @@
         "lat":35.6895,
         "lon":139.6917,
         "dest_port":"OSAKA",
-        "dep_port":"TOKYO"
+        "dep_port":"TOKYO",
+        "current_draught":9.8,
+        "speed":16.2,
+        "course":210
     },
     {
         "name":"ATLANTIC VOYAGER",
@@ -297,7 +384,10 @@
         "lat":45.4215,
         "lon":-75.6972,
         "dest_port":"QUEBEC CITY",
-        "dep_port":"MONTREAL"
+        "dep_port":"MONTREAL",
+        "current_draught":9.8,
+        "speed":15.2,
+        "course":210
     },
     {
         "name":"GLOBAL MERCHANT",
@@ -307,7 +397,10 @@
         "lat":51.5074,
         "lon":-0.1278,
         "dest_port":"ROTTERDAM",
-        "dep_port":"LONDON"
+        "dep_port":"LONDON",
+        "current_draught":14.3,
+        "speed":0.0,
+        "course":0
     },
     {
         "name":"PACIFIC VOYAGER",
@@ -317,7 +410,10 @@
         "lat":35.6895,
         "lon":139.6917,
         "dest_port":"SINGAPORE",
-        "dep_port":"TOKYO"
+        "dep_port":"TOKYO",
+        "current_draught":8.7,
+        "speed":18.3,
+        "course":220
     },
     {
         "name":"PACIFIC VOYAGER",
@@ -327,7 +423,10 @@
         "lat":35.6895,
         "lon":139.6917,
         "dest_port":"OSAKA",
-        "dep_port":"TOKYO"
+        "dep_port":"TOKYO",
+        "current_draught":8.7,
+        "speed":18.3,
+        "course":220
     },
     {
         "name":"GLOBAL MERCHANT",
@@ -337,7 +436,10 @@
         "lat":51.5074,
         "lon":-0.1278,
         "dest_port":"ROTTERDAM",
-        "dep_port":"LONDON"
+        "dep_port":"LONDON",
+        "current_draught":14.3,
+        "speed":0.0,
+        "course":0
     },
     {
         "name":"SILVER NAVIGATOR",
@@ -347,7 +449,10 @@
         "lat":35.6895,
         "lon":139.6917,
         "dest_port":"SINGAPORE",
-        "dep_port":"TOKYO"
+        "dep_port":"TOKYO",
+        "current_draught":8.7,
+        "speed":15.2,
+        "course":210
     },
     {
         "name":"GLOBAL MERCHANT",
@@ -357,7 +462,10 @@
         "lat":51.5074,
         "lon":-0.1278,
         "dest_port":"ROTTERDAM",
-        "dep_port":"LONDON"
+        "dep_port":"LONDON",
+        "current_draught":14.3,
+        "speed":0.0,
+        "course":0
     },
     {
         "name":"ATLANTIC ADVENTURER",
@@ -367,7 +475,10 @@
         "lat":49.2827,
         "lon":-123.1207,
         "dest_port":"VANCOUVER",
-        "dep_port":"HALIFAX"
+        "dep_port":"HALIFAX",
+        "current_draught":9.8,
+        "speed":14.2,
+        "course":285
     },
     {
         "name":"PACIFIC TRADER",
@@ -377,7 +488,10 @@
         "lat":35.6895,
         "lon":139.6917,
         "dest_port":"OSAKA",
-        "dep_port":"TOKYO"
+        "dep_port":"TOKYO",
+        "current_draught":9.8,
+        "speed":15.2,
+        "course":290
     },
     {
         "name":"SUNNY ISLANDER",
@@ -387,7 +501,10 @@
         "lat":25.0343,
         "lon":-77.3968,
         "dest_port":"HAVANA",
-        "dep_port":"NASSAU"
+        "dep_port":"NASSAU",
+        "current_draught":8.7,
+        "speed":18.2,
+        "course":210
     },
     {
         "name":"GLOBAL MERCHANT",
@@ -397,7 +514,10 @@
         "lat":51.5074,
         "lon":-0.1278,
         "dest_port":"ROTTERDAM",
-        "dep_port":"LONDON"
+        "dep_port":"LONDON",
+        "current_draught":14.3,
+        "speed":0.0,
+        "course":0
     },
     {
         "name":"PACIFIC VOYAGER",
@@ -407,7 +527,10 @@
         "lat":-33.8688,
         "lon":151.2093,
         "dest_port":"BRISBANE",
-        "dep_port":"SYDNEY"
+        "dep_port":"SYDNEY",
+        "current_draught":8.5,
+        "speed":18.2,
+        "course":210
     },
     {
         "name":"PACIFIC VOYAGER",
@@ -417,7 +540,10 @@
         "lat":35.6895,
         "lon":139.6917,
         "dest_port":"HONG KONG",
-        "dep_port":"SINGAPORE"
+        "dep_port":"SINGAPORE",
+        "current_draught":9.8,
+        "speed":15.7,
+        "course":255
     },
     {
         "name":"PACIFIC VOYAGER",
@@ -427,7 +553,10 @@
         "lat":35.6895,
         "lon":139.6917,
         "dest_port":"SYDNEY",
-        "dep_port":"TOKYO"
+        "dep_port":"TOKYO",
+        "current_draught":8.8,
+        "speed":18.3,
+        "course":215
     },
     {
         "name":"GLOBAL MERCHANT",
@@ -437,7 +566,10 @@
         "lat":51.5074,
         "lon":-0.1278,
         "dest_port":"ROTTERDAM",
-        "dep_port":"LONDON"
+        "dep_port":"LONDON",
+        "current_draught":14.3,
+        "speed":0.0,
+        "course":0
     },
     {
         "name":"ISLAND VENTURE",
@@ -447,7 +579,10 @@
         "lat":25.0343,
         "lon":-77.3963,
         "dest_port":"LAS PALMAS",
-        "dep_port":"NASSAU"
+        "dep_port":"NASSAU",
+        "current_draught":8.7,
+        "speed":15.2,
+        "course":215
     },
     {
         "name":"GLOBAL MERCHANT",
@@ -457,7 +592,10 @@
         "lat":51.5074,
         "lon":-0.1278,
         "dest_port":"ROTTERDAM",
-        "dep_port":"LONDON"
+        "dep_port":"LONDON",
+        "current_draught":14.3,
+        "speed":0.0,
+        "course":0
     },
     {
         "name":"ATLANTIC VOYAGER",
@@ -467,7 +605,10 @@
         "lat":38.7223,
         "lon":-9.1393,
         "dest_port":"ALICANTE",
-        "dep_port":"LISBON"
+        "dep_port":"LISBON",
+        "current_draught":9.8,
+        "speed":14.2,
+        "course":185
     },
     {
         "name":"GLOBAL MERCHANT",
@@ -477,7 +618,10 @@
         "lat":51.5074,
         "lon":-0.1278,
         "dest_port":"ROTTERDAM",
-        "dep_port":"LONDON"
+        "dep_port":"LONDON",
+        "current_draught":14.3,
+        "speed":0.0,
+        "course":0
     },
     {
         "name":"ATLANTIC VOYAGER",
@@ -487,7 +631,10 @@
         "lat":45.4215,
         "lon":-75.6972,
         "dest_port":"VANCOUVER",
-        "dep_port":"HALIFAX"
+        "dep_port":"HALIFAX",
+        "current_draught":9.8,
+        "speed":14.2,
+        "course":215
     },
     {
         "name":"GLOBAL MERCHANT",
@@ -497,7 +644,10 @@
         "lat":51.5074,
         "lon":-0.1278,
         "dest_port":"ROTTERDAM",
-        "dep_port":"LONDON"
+        "dep_port":"LONDON",
+        "current_draught":14.3,
+        "speed":0.0,
+        "course":0
     },
     {
         "name":"ATLANTIC VOYAGER",
@@ -507,7 +657,10 @@
         "lat":49.2827,
         "lon":-123.1207,
         "dest_port":"LOS ANGELES",
-        "dep_port":"VANCOUVER"
+        "dep_port":"VANCOUVER",
+        "current_draught":9.5,
+        "speed":14.8,
+        "course":255
     },
     {
         "name":"PACIFIC VOYAGER",
@@ -517,7 +670,10 @@
         "lat":35.6895,
         "lon":139.6917,
         "dest_port":"HONG KONG",
-        "dep_port":"TOKYO"
+        "dep_port":"TOKYO",
+        "current_draught":9.8,
+        "speed":20.2,
+        "course":220
     },
     {
         "name":"PACIFIC TRADER",
@@ -527,7 +683,10 @@
         "lat":35.6895,
         "lon":139.6917,
         "dest_port":"HONG KONG",
-        "dep_port":"TOKYO"
+        "dep_port":"TOKYO",
+        "current_draught":9.8,
+        "speed":15.2,
+        "course":250
     },
     {
         "name":"PACIFIC NAVIGATOR",
@@ -537,7 +696,10 @@
         "lat":35.6895,
         "lon":139.6917,
         "dest_port":"OSAKA",
-        "dep_port":"TOKYO"
+        "dep_port":"TOKYO",
+        "current_draught":9.8,
+        "speed":16.2,
+        "course":285
     },
     {
         "name":"PACIFIC DISCOVERER",
@@ -547,7 +709,10 @@
         "lat":-33.8688,
         "lon":151.2093,
         "dest_port":"SINGAPORE",
-        "dep_port":"SYDNEY"
+        "dep_port":"SYDNEY",
+        "current_draught":9.8,
+        "speed":14.2,
+        "course":245
     },
     {
         "name":"GLOBAL MERCHANT",
@@ -557,7 +722,10 @@
         "lat":51.5074,
         "lon":-0.1278,
         "dest_port":"ROTTERDAM",
-        "dep_port":"LONDON"
+        "dep_port":"LONDON",
+        "current_draught":14.3,
+        "speed":0.0,
+        "course":0
     },
     {
         "name":"ATLANTIC VOYAGER",
@@ -567,7 +735,10 @@
         "lat":53.5511,
         "lon":9.9937,
         "dest_port":"BREMEN",
-        "dep_port":"HAMBURG"
+        "dep_port":"HAMBURG",
+        "current_draught":7.8,
+        "speed":16.2,
+        "course":245
     },
     {
         "name":"PACIFIC VOYAGER",
@@ -577,7 +748,10 @@
         "lat":35.6895,
         "lon":139.6917,
         "dest_port":"OSAKA",
-        "dep_port":"TOKYO"
+        "dep_port":"TOKYO",
+        "current_draught":9.8,
+        "speed":18.3,
+        "course":220
     },
     {
         "name":"ATLANTIC VOYAGER",
@@ -587,7 +761,10 @@
         "lat":45.4215,
         "lon":-75.6981,
         "dest_port":"MIAMI",
-        "dep_port":"NEW YORK"
+        "dep_port":"NEW YORK",
+        "current_draught":8.2,
+        "speed":18.7,
+        "course":210
     },
     {
         "name":"GLOBAL MERCHANT",
@@ -597,7 +774,10 @@
         "lat":51.5074,
         "lon":-0.1278,
         "dest_port":"ROTTERDAM",
-        "dep_port":"LONDON"
+        "dep_port":"LONDON",
+        "current_draught":14.3,
+        "speed":0.0,
+        "course":0
     },
     {
         "name":"ATLANTIC VOYAGER",
@@ -607,7 +787,10 @@
         "lat":48.8566,
         "lon":2.3522,
         "dest_port":"NEW YORK",
-        "dep_port":"PARIS"
+        "dep_port":"PARIS",
+        "current_draught":8.5,
+        "speed":18.3,
+        "course":210
     },
     {
         "name":"PACIFIC VOYAGER",
@@ -617,7 +800,10 @@
         "lat":-33.8688,
         "lon":151.2093,
         "dest_port":"MELBOURNE",
-        "dep_port":"SYDNEY"
+        "dep_port":"SYDNEY",
+        "current_draught":8.7,
+        "speed":18.2,
+        "course":210
     },
     {
         "name":"PACIFIC VOYAGER",
@@ -627,7 +813,10 @@
         "lat":-33.8688,
         "lon":151.2093,
         "dest_port":"MELBOURNE",
-        "dep_port":"SYDNEY"
+        "dep_port":"SYDNEY",
+        "current_draught":9.8,
+        "speed":14.2,
+        "course":210
     },
     {
         "name":"MARITIME VOYAGER",
@@ -637,7 +826,10 @@
         "lat":49.2827,
         "lon":-123.1207,
         "dest_port":"SEATTLE",
-        "dep_port":"VANCOUVER"
+        "dep_port":"VANCOUVER",
+        "current_draught":7.8,
+        "speed":16.3,
+        "course":220
     },
     {
         "name":"ATLANTIC VOYAGER",
@@ -647,7 +839,10 @@
         "lat":45.4215,
         "lon":-75.6972,
         "dest_port":"MONTREAL",
-        "dep_port":"OTTAWA"
+        "dep_port":"OTTAWA",
+        "current_draught":6.8,
+        "speed":8.2,
+        "course":210
     },
     {
         "name":"GLOBAL MERCHANT",
@@ -657,7 +852,10 @@
         "lat":51.5074,
         "lon":-0.1278,
         "dest_port":"ROTTERDAM",
-        "dep_port":"LONDON"
+        "dep_port":"LONDON",
+        "current_draught":14.3,
+        "speed":0.0,
+        "course":0
     },
     {
         "name":"PACIFIC NAVIGATOR",
@@ -667,7 +865,10 @@
         "lat":35.6895,
         "lon":139.6917,
         "dest_port":"BANGKOK",
-        "dep_port":"TOKYO"
+        "dep_port":"TOKYO",
+        "current_draught":9.8,
+        "speed":18.2,
+        "course":215
     },
     {
         "name":"PACIFIC TRADER",
@@ -677,7 +878,10 @@
         "lat":-33.8688,
         "lon":151.2093,
         "dest_port":"PERTH",
-        "dep_port":"SYDNEY"
+        "dep_port":"SYDNEY",
+        "current_draught":9.8,
+        "speed":14.2,
+        "course":215
     },
     {
         "name":"ATLANTIC VOYAGER",
@@ -687,7 +891,10 @@
         "lat":48.4284,
         "lon":-123.3656,
         "dest_port":"ANCHORAGE",
-        "dep_port":"VANCOUVER"
+        "dep_port":"VANCOUVER",
+        "current_draught":9.8,
+        "speed":14.2,
+        "course":210
     },
     {
         "name":"PACIFIC VOYAGER",
@@ -697,7 +904,10 @@
         "lat":35.6895,
         "lon":139.6917,
         "dest_port":"OSAKA",
-        "dep_port":"TOKYO"
+        "dep_port":"TOKYO",
+        "current_draught":10.8,
+        "speed":14.2,
+        "course":215
     },
     {
         "name":"SUNRISE TRADER",
@@ -707,7 +917,10 @@
         "lat":22.3193,
         "lon":114.1694,
         "dest_port":"SINGAPORE",
-        "dep_port":"HONG KONG"
+        "dep_port":"HONG KONG",
+        "current_draught":8.7,
+        "speed":14.2,
+        "course":268
     },
     {
         "name":"GLOBAL MERCHANT",
@@ -717,7 +930,10 @@
         "lat":51.5074,
         "lon":-0.1278,
         "dest_port":"ROTTERDAM",
-        "dep_port":"LONDON"
+        "dep_port":"LONDON",
+        "current_draught":14.3,
+        "speed":0.0,
+        "course":0
     },
     {
         "name":"ISLAND VOYAGER",
@@ -727,7 +943,10 @@
         "lat":48.4284,
         "lon":-123.3656,
         "dest_port":"VANCOUVER",
-        "dep_port":"ANELY"
+        "dep_port":"ANELY",
+        "current_draught":8.1,
+        "speed":18.2,
+        "course":220
     },
     {
         "name":"SILVER SEAFARER",
@@ -737,7 +956,10 @@
         "lat":49.2827,
         "lon":-123.1207,
         "dest_port":"ANCHORAGE",
-        "dep_port":"SEATTLE"
+        "dep_port":"SEATTLE",
+        "current_draught":8.5,
+        "speed":11.8,
+        "course":285
     },
     {
         "name":"PACIFIC VOYAGER",
@@ -747,7 +969,10 @@
         "lat":35.6895,
         "lon":139.6917,
         "dest_port":"OSAKA",
-        "dep_port":"TOKYO"
+        "dep_port":"TOKYO",
+        "current_draught":8.7,
+        "speed":18.2,
+        "course":220
     },
     {
         "name":"PACIFIC VOYAGER",
@@ -757,7 +982,10 @@
         "lat":35.6895,
         "lon":139.6917,
         "dest_port":"SINGAPORE",
-        "dep_port":"TOKYO"
+        "dep_port":"TOKYO",
+        "current_draught":8.9,
+        "speed":18.3,
+        "course":220
     },
     {
         "name":"GLOBAL MERCHANT",
@@ -767,7 +995,10 @@
         "lat":51.5074,
         "lon":-0.1278,
         "dest_port":"ROTTERDAM",
-        "dep_port":"LONDON"
+        "dep_port":"LONDON",
+        "current_draught":14.3,
+        "speed":0.0,
+        "course":0
     },
     {
         "name":"SILVER LADY",
@@ -777,7 +1008,10 @@
         "lat":45.4215,
         "lon":-75.6972,
         "dest_port":"HALIFAX",
-        "dep_port":"MONTREAL"
+        "dep_port":"MONTREAL",
+        "current_draught":8.6,
+        "speed":15.2,
+        "course":185
     },
     {
         "name":"OCEANIC EXPLORER",
@@ -787,7 +1021,10 @@
         "lat":25.7743,
         "lon":-80.1937,
         "dest_port":"NEW YORK",
-        "dep_port":"MIAMI"
+        "dep_port":"MIAMI",
+        "current_draught":11.2,
+        "speed":12.5,
+        "course":105
     },
     {
         "name":"GLOBAL MERCHANT",
@@ -797,7 +1034,10 @@
         "lat":51.5074,
         "lon":-0.1278,
         "dest_port":"ROTTERDAM",
-        "dep_port":"LONDON"
+        "dep_port":"LONDON",
+        "current_draught":14.3,
+        "speed":0.0,
+        "course":0
     },
     {
         "name":"PACIFIC VOYAGER",
@@ -807,7 +1047,10 @@
         "lat":35.6895,
         "lon":139.6917,
         "dest_port":"TOKYO",
-        "dep_port":"OSAKA"
+        "dep_port":"OSAKA",
+        "current_draught":6.8,
+        "speed":20.2,
+        "course":215
     },
     {
         "name":"PACIFIC VOYAGER",
@@ -817,7 +1060,10 @@
         "lat":35.6895,
         "lon":139.6917,
         "dest_port":"OSAKA",
-        "dep_port":"TOKYO"
+        "dep_port":"TOKYO",
+        "current_draught":6.8,
+        "speed":22.3,
+        "course":215
     },
     {
         "name":"PACIFIC VOYAGER",
@@ -827,7 +1073,10 @@
         "lat":-33.8688,
         "lon":151.2093,
         "dest_port":"LOS ANGELES",
-        "dep_port":"SYDNEY"
+        "dep_port":"SYDNEY",
+        "current_draught":8.9,
+        "speed":14.2,
+        "course":215
     },
     {
         "name":"GLOBAL MERCHANT",
@@ -837,7 +1086,10 @@
         "lat":51.5074,
         "lon":-0.1278,
         "dest_port":"ROTTERDAM",
-        "dep_port":"LONDON"
+        "dep_port":"LONDON",
+        "current_draught":14.3,
+        "speed":0.0,
+        "course":0
     },
     {
         "name":"PACIFIC TRADER",
@@ -847,7 +1099,10 @@
         "lat":-33.8688,
         "lon":151.2093,
         "dest_port":"LOS ANGELES",
-        "dep_port":"SYDNEY"
+        "dep_port":"SYDNEY",
+        "current_draught":8.5,
+        "speed":9.2,
+        "course":215
     },
     {
         "name":"GLOBAL MERCHANT",
@@ -857,7 +1112,10 @@
         "lat":51.5074,
         "lon":-0.1278,
         "dest_port":"ROTTERDAM",
-        "dep_port":"LONDON"
+        "dep_port":"LONDON",
+        "current_draught":14.3,
+        "speed":0.0,
+        "course":0
     },
     {
         "name":"PACIFIC EXPLORER",
@@ -867,7 +1125,10 @@
         "lat":-33.8688,
         "lon":151.2093,
         "dest_port":"LOS ANGELES",
-        "dep_port":"SYDNEY"
+        "dep_port":"SYDNEY",
+        "current_draught":10.7,
+        "speed":15.2,
+        "course":245
     },
     {
         "name":"GLOBAL MERCHANT",
@@ -877,7 +1138,10 @@
         "lat":51.5074,
         "lon":-0.1278,
         "dest_port":"ROTTERDAM",
-        "dep_port":"LONDON"
+        "dep_port":"LONDON",
+        "current_draught":14.3,
+        "speed":0.0,
+        "course":0
     },
     {
         "name":"CARIBBEAN QUEEN",
@@ -887,7 +1151,10 @@
         "lat":18.0179,
         "lon":-76.8091,
         "dest_port":"MONTEGO BAY",
-        "dep_port":"KINGSTON"
+        "dep_port":"KINGSTON",
+        "current_draught":7.8,
+        "speed":15.3,
+        "course":200
     },
     {
         "name":"GLOBAL MERCHANT",
@@ -897,7 +1164,10 @@
         "lat":51.5074,
         "lon":-0.1278,
         "dest_port":"ROTTERDAM",
-        "dep_port":"LONDON"
+        "dep_port":"LONDON",
+        "current_draught":14.3,
+        "speed":0.0,
+        "course":0
     },
     {
         "name":"ATLANTIC NAVIGATOR",
@@ -907,7 +1177,10 @@
         "lat":45.4215,
         "lon":-75.6981,
         "dest_port":"MONTREAL",
-        "dep_port":"HALIFAX"
+        "dep_port":"HALIFAX",
+        "current_draught":8.5,
+        "speed":15.2,
+        "course":210
     },
     {
         "name":"GLOBAL MERCHANT",
@@ -917,7 +1190,10 @@
         "lat":51.5074,
         "lon":-0.1278,
         "dest_port":"ROTTERDAM",
-        "dep_port":"LONDON"
+        "dep_port":"LONDON",
+        "current_draught":14.3,
+        "speed":0.0,
+        "course":0
     },
     {
         "name":"SUNNY CRUISER",
@@ -927,7 +1203,10 @@
         "lat":48.8566,
         "lon":2.3522,
         "dest_port":"ROME",
-        "dep_port":"PARIS"
+        "dep_port":"PARIS",
+        "current_draught":8.5,
+        "speed":18.3,
+        "course":215
     },
     {
         "name":"SUNNY VOYAGER",
@@ -937,7 +1216,10 @@
         "lat":35.6895,
         "lon":139.6917,
         "dest_port":"OSAKA",
-        "dep_port":"TOKYO"
+        "dep_port":"TOKYO",
+        "current_draught":7.8,
+        "speed":13.2,
+        "course":210
     },
     {
         "name":"SUNRISE DISCOVERY",
@@ -947,7 +1229,10 @@
         "lat":35.6895,
         "lon":139.6917,
         "dest_port":"SINGAPORE",
-        "dep_port":"TOKYO"
+        "dep_port":"TOKYO",
+        "current_draught":8.5,
+        "speed":18.2,
+        "course":215
     },
     {
         "name":"PACIFIC VOYAGER",
@@ -957,7 +1242,10 @@
         "lat":35.6895,
         "lon":139.6917,
         "dest_port":"LOS ANGELES",
-        "dep_port":"TOKYO"
+        "dep_port":"TOKYO",
+        "current_draught":9.8,
+        "speed":16.2,
+        "course":225
     },
     {
         "name":"PACIFIC VOYAGER",
@@ -967,7 +1255,10 @@
         "lat":35.6895,
         "lon":139.6917,
         "dest_port":"SINGAPORE",
-        "dep_port":"TOKYO"
+        "dep_port":"TOKYO",
+        "current_draught":8.1,
+        "speed":18.3,
+        "course":210
     },
     {
         "name":"PACIFIC VOYAGER",
@@ -977,7 +1268,10 @@
         "lat":35.6895,
         "lon":139.6917,
         "dest_port":"OSAKA",
-        "dep_port":"TOKYO"
+        "dep_port":"TOKYO",
+        "current_draught":9.8,
+        "speed":18.2,
+        "course":220
     },
     {
         "name":"SILVER WAVE",
@@ -987,7 +1281,10 @@
         "lat":49.2827,
         "lon":-123.1207,
         "dest_port":"VANCOUVER",
-        "dep_port":"ANCHORAGE"
+        "dep_port":"ANCHORAGE",
+        "current_draught":8.9,
+        "speed":15.2,
+        "course":210
     },
     {
         "name":"ROYAL NAVIGATOR",
@@ -997,7 +1294,10 @@
         "lat":48.4284,
         "lon":-123.3656,
         "dest_port":"VANCOUVER",
-        "dep_port":"SEATTLE"
+        "dep_port":"SEATTLE",
+        "current_draught":9.8,
+        "speed":14.2,
+        "course":270
     },
     {
         "name":"GLOBAL MERCHANT",
@@ -1007,7 +1307,10 @@
         "lat":51.5074,
         "lon":-0.1278,
         "dest_port":"ROTTERDAM",
-        "dep_port":"LONDON"
+        "dep_port":"LONDON",
+        "current_draught":14.3,
+        "speed":0.0,
+        "course":0
     },
     {
         "name":"PACIFIC VOYAGER",
@@ -1017,7 +1320,10 @@
         "lat":35.6895,
         "lon":139.6917,
         "dest_port":"OSAKA",
-        "dep_port":"TOKYO"
+        "dep_port":"TOKYO",
+        "current_draught":8.7,
+        "speed":15.2,
+        "course":240
     },
     {
         "name":"PACIFIC VOYAGER",
@@ -1027,7 +1333,10 @@
         "lat":35.6895,
         "lon":139.6917,
         "dest_port":"OSAKA",
-        "dep_port":"TOKYO"
+        "dep_port":"TOKYO",
+        "current_draught":8.7,
+        "speed":14.2,
+        "course":210
     },
     {
         "name":"GLOBAL MERCHANT",
@@ -1037,7 +1346,10 @@
         "lat":51.5074,
         "lon":-0.1278,
         "dest_port":"ROTTERDAM",
-        "dep_port":"LONDON"
+        "dep_port":"LONDON",
+        "current_draught":14.3,
+        "speed":0.0,
+        "course":0
     },
     {
         "name":"PACIFIC VOYAGER",
@@ -1047,7 +1359,10 @@
         "lat":35.6895,
         "lon":139.6917,
         "dest_port":"OSAKA",
-        "dep_port":"TOKYO"
+        "dep_port":"TOKYO",
+        "current_draught":8.6,
+        "speed":17.2,
+        "course":240
     },
     {
         "name":"PACIFIC VOYAGER",
@@ -1057,7 +1372,10 @@
         "lat":35.6895,
         "lon":139.6917,
         "dest_port":"SYDNEY",
-        "dep_port":"TOKYO"
+        "dep_port":"TOKYO",
+        "current_draught":9.8,
+        "speed":14.2,
+        "course":210
     },
     {
         "name":"SUNNY EXPLORER",
@@ -1067,7 +1385,10 @@
         "lat":-33.8688,
         "lon":151.2093,
         "dest_port":"LOS ANGELES",
-        "dep_port":"SYDNEY"
+        "dep_port":"SYDNEY",
+        "current_draught":12.8,
+        "speed":16.2,
+        "course":210
     },
     {
         "name":"SILVER LADY",
@@ -1077,7 +1398,10 @@
         "lat":48.4284,
         "lon":-123.3656,
         "dest_port":"SEATTLE",
-        "dep_port":"VANCOUVER"
+        "dep_port":"VANCOUVER",
+        "current_draught":8.1,
+        "speed":18.2,
+        "course":215
     },
     {
         "name":"PACIFIC VOYAGER",
@@ -1087,7 +1411,10 @@
         "lat":35.6895,
         "lon":139.6917,
         "dest_port":"OSAKA",
-        "dep_port":"TOKYO"
+        "dep_port":"TOKYO",
+        "current_draught":8.7,
+        "speed":16.2,
+        "course":225
     },
     {
         "name":"GLOBAL MERCHANT",
@@ -1097,7 +1424,10 @@
         "lat":51.5074,
         "lon":-0.1278,
         "dest_port":"ROTTERDAM",
-        "dep_port":"LONDON"
+        "dep_port":"LONDON",
+        "current_draught":14.3,
+        "speed":0.0,
+        "course":0
     },
     {
         "name":"ATLANTIC VOYAGER",
@@ -1107,7 +1437,10 @@
         "lat":45.4215,
         "lon":-75.6972,
         "dest_port":"SEATTLE",
-        "dep_port":"QUEBEC"
+        "dep_port":"QUEBEC",
+        "current_draught":9.8,
+        "speed":15.2,
+        "course":215
     },
     {
         "name":"GLOBAL MERCHANT",
@@ -1117,7 +1450,10 @@
         "lat":51.5074,
         "lon":-0.1278,
         "dest_port":"ROTTERDAM",
-        "dep_port":"LONDON"
+        "dep_port":"LONDON",
+        "current_draught":14.3,
+        "speed":0.0,
+        "course":0
     },
     {
         "name":"ATLANTIC NAVIGATOR",
@@ -1127,7 +1463,10 @@
         "lat":53.5511,
         "lon":9.9937,
         "dest_port":"BREMERHAVEN",
-        "dep_port":"HAMBURG"
+        "dep_port":"HAMBURG",
+        "current_draught":7.8,
+        "speed":15.2,
+        "course":210
     },
     {
         "name":"PACIFIC VOYAGER",
@@ -1137,7 +1476,10 @@
         "lat":-33.8688,
         "lon":151.2093,
         "dest_port":"AUCKLAND",
-        "dep_port":"SYDNEY"
+        "dep_port":"SYDNEY",
+        "current_draught":8.6,
+        "speed":20.3,
+        "course":210
     },
     {
         "name":"GLOBAL MERCHANT",
@@ -1147,7 +1489,10 @@
         "lat":51.5074,
         "lon":-0.1278,
         "dest_port":"ROTTERDAM",
-        "dep_port":"LONDON"
+        "dep_port":"LONDON",
+        "current_draught":14.3,
+        "speed":0.0,
+        "course":0
     },
     {
         "name":"OCEANIC EXPLORER II",
@@ -1157,7 +1502,10 @@
         "lat":48.4284,
         "lon":-123.3656,
         "dest_port":"LOS ANGELES",
-        "dep_port":"VANCOUVER"
+        "dep_port":"VANCOUVER",
+        "current_draught":8.7,
+        "speed":22.3,
+        "course":215
     },
     {
         "name":"SUNNY VOYAGER",
@@ -1167,7 +1515,10 @@
         "lat":35.6895,
         "lon":139.6917,
         "dest_port":"SHANGHAI",
-        "dep_port":"TOKYO"
+        "dep_port":"TOKYO",
+        "current_draught":8.7,
+        "speed":14.2,
+        "course":210
     },
     {
         "name":"PACIFIC VOYAGER",
@@ -1177,7 +1528,10 @@
         "lat":-33.8688,
         "lon":151.2093,
         "dest_port":"OSAKA",
-        "dep_port":"SYDNEY"
+        "dep_port":"SYDNEY",
+        "current_draught":10.8,
+        "speed":15.2,
+        "course":210
     },
     {
         "name":"PACIFIC VOYAGER",
@@ -1187,7 +1541,10 @@
         "lat":22.3193,
         "lon":114.1694,
         "dest_port":"TOKYO",
-        "dep_port":"HONG KONG"
+        "dep_port":"HONG KONG",
+        "current_draught":9.8,
+        "speed":15.2,
+        "course":185
     },
     {
         "name":"GLOBAL MERCHANT",
@@ -1197,7 +1554,10 @@
         "lat":51.5074,
         "lon":-0.1278,
         "dest_port":"ROTTERDAM",
-        "dep_port":"LONDON"
+        "dep_port":"LONDON",
+        "current_draught":14.3,
+        "speed":0.0,
+        "course":0
     },
     {
         "name":"SUNSET VOYAGER",
@@ -1207,7 +1567,10 @@
         "lat":-33.8688,
         "lon":151.2093,
         "dest_port":"SINGAPORE",
-        "dep_port":"SYDNEY"
+        "dep_port":"SYDNEY",
+        "current_draught":9.8,
+        "speed":15.2,
+        "course":210
     },
     {
         "name":"PACIFIC VOYAGER",
@@ -1217,7 +1580,10 @@
         "lat":-33.8688,
         "lon":151.2093,
         "dest_port":"AUCKLAND",
-        "dep_port":"SYDNEY"
+        "dep_port":"SYDNEY",
+        "current_draught":9.8,
+        "speed":18.3,
+        "course":210
     },
     {
         "name":"ATLANTIC VOYAGER",
@@ -1227,7 +1593,10 @@
         "lat":45.4215,
         "lon":-75.6981,
         "dest_port":"CHARLESTON",
-        "dep_port":"MONTREAL"
+        "dep_port":"MONTREAL",
+        "current_draught":9.8,
+        "speed":15.2,
+        "course":215
     },
     {
         "name":"PACIFIC VOYAGER",
@@ -1237,7 +1606,10 @@
         "lat":22.3964,
         "lon":114.1095,
         "dest_port":"SINGAPORE",
-        "dep_port":"HONG KONG"
+        "dep_port":"HONG KONG",
+        "current_draught":9.8,
+        "speed":15.2,
+        "course":245
     },
     {
         "name":"PACIFIC VOYAGER",
@@ -1247,7 +1619,10 @@
         "lat":30.0444,
         "lon":31.2357,
         "dest_port":"TAIPEI",
-        "dep_port":"SINGAPORE"
+        "dep_port":"SINGAPORE",
+        "current_draught":9.8,
+        "speed":18.2,
+        "course":220
     },
     {
         "name":"SILVER SEA",
@@ -1257,7 +1632,10 @@
         "lat":48.4284,
         "lon":-123.3656,
         "dest_port":"ANCHORAGE",
-        "dep_port":"SEATTLE"
+        "dep_port":"SEATTLE",
+        "current_draught":8.7,
+        "speed":16.2,
+        "course":245
     },
     {
         "name":"ATLANTIC VOYAGER",
@@ -1267,7 +1645,10 @@
         "lat":48.4284,
         "lon":-123.3656,
         "dest_port":"SEATTLE",
-        "dep_port":"VANCOUVER"
+        "dep_port":"VANCOUVER",
+        "current_draught":9.8,
+        "speed":15.2,
+        "course":215
     },
     {
         "name":"GLOBAL MERCHANT",
@@ -1277,7 +1658,10 @@
         "lat":51.5074,
         "lon":-0.1278,
         "dest_port":"ROTTERDAM",
-        "dep_port":"LONDON"
+        "dep_port":"LONDON",
+        "current_draught":14.3,
+        "speed":0.0,
+        "course":0
     },
     {
         "name":"PACIFIC VOYAGER",
@@ -1287,7 +1671,10 @@
         "lat":-33.8688,
         "lon":151.2093,
         "dest_port":"SINGAPORE",
-        "dep_port":"SYDNEY"
+        "dep_port":"SYDNEY",
+        "current_draught":8.7,
+        "speed":15.0,
+        "course":210
     },
     {
         "name":"PACIFIC VOYAGER",
@@ -1297,7 +1684,10 @@
         "lat":22.3193,
         "lon":114.1694,
         "dest_port":"SHANGHAI",
-        "dep_port":"HONG KONG"
+        "dep_port":"HONG KONG",
+        "current_draught":9.8,
+        "speed":15.2,
+        "course":215
     },
     {
         "name":"PACIFIC VOYAGER",
@@ -1307,7 +1697,10 @@
         "lat":35.6895,
         "lon":139.6917,
         "dest_port":"HONG KONG",
-        "dep_port":"TOKYO"
+        "dep_port":"TOKYO",
+        "current_draught":9.8,
+        "speed":16.2,
+        "course":215
     },
     {
         "name":"PACIFIC VOYAGER",
@@ -1317,6 +1710,9 @@
         "lat":35.6895,
         "lon":139.6917,
         "dest_port":"SINGAPORE",
-        "dep_port":"TOKYO"
+        "dep_port":"TOKYO",
+        "current_draught":8.7,
+        "speed":18.2,
+        "course":220
     }
 ]

@@ -3,7 +3,6 @@ import { useParams } from 'react-router-dom';
 import { Box, Typography, Tabs, Tab } from '@mui/material';
 import DescriptiveStats from './DescriptiveStats';
 import ImageAnalysis from './ImageAnalysis';
-import { Grid } from '@mui/material';
 
 const TabPanel = ({ children, value, index, ...other }) => (
   <div
@@ -13,7 +12,11 @@ const TabPanel = ({ children, value, index, ...other }) => (
     aria-labelledby={`city-tab-${index}`}
     {...other}
   >
-    {value === index && <Box>{children}</Box>}
+    {value === index && (
+      <Box sx={{ width: '100%' }}>
+        {children}
+      </Box>
+    )}
   </div>
 );
 
@@ -48,20 +51,11 @@ const CityStatsPage = () => {
         </Box>
 
         <TabPanel value={tabValue} index={0}>
-          <Grid container>
-            <Grid item xs={12} md={8}>
-              <DescriptiveStats cityName={cityName} />
-            </Grid>
-          </Grid>
+          <DescriptiveStats cityName={cityName} />
         </TabPanel>
         
         <TabPanel value={tabValue} index={1}>
-          <Box sx={{ 
-            width: '100%',
-            maxWidth: '100%'
-          }}>
-            <ImageAnalysis cityName={cityName} />
-          </Box>
+          <ImageAnalysis cityName={cityName} />
         </TabPanel>
       </Box>
     </Box>

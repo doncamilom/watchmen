@@ -35,6 +35,9 @@ const SelectedLabelCard = ({ selectedLabel, vesselData }) => {
                 <strong>Name:</strong> {vesselData.name}
               </Typography>
               <Typography variant="body2" gutterBottom>
+                <strong>Country:</strong> {vesselData.country_iso || 'N/A'}
+              </Typography>
+              <Typography variant="body2" gutterBottom>
                 <strong>Type:</strong> {vesselData.type || 'N/A'}
               </Typography>
               {vesselData.type_specific && (
@@ -42,14 +45,21 @@ const SelectedLabelCard = ({ selectedLabel, vesselData }) => {
                   <strong>Specific Type:</strong> {vesselData.type_specific}
                 </Typography>
               )}
-              {vesselData.isotype && (
-                <Typography variant="body2" gutterBottom>
-                  <strong>ISO Type:</strong> {vesselData.isotype}
-                </Typography>
-              )}
               <Typography variant="body2" gutterBottom>
                 <strong>Route:</strong> {vesselData.dep_port || 'Unknown'} → {vesselData.dest_port || 'Unknown'}
               </Typography>
+              
+              {/* Navigation Information */}
+              <Typography variant="body2" gutterBottom>
+                <strong>Current Draught:</strong> {vesselData.current_draught} m
+              </Typography>
+              <Typography variant="body2" gutterBottom>
+                <strong>Speed:</strong> {vesselData.speed} knots
+              </Typography>
+              <Typography variant="body2" gutterBottom>
+                <strong>Course:</strong> {vesselData.course}°
+              </Typography>
+              
               {vesselData.lat && vesselData.lon && (
                 <Typography variant="body2" gutterBottom>
                   <strong>Position:</strong> {vesselData.lat}, {vesselData.lon}
@@ -59,7 +69,6 @@ const SelectedLabelCard = ({ selectedLabel, vesselData }) => {
           </Box>
         )}
 
-        {/* Divider between sections */}
         <Divider sx={{ my: 2 }} />
         
         {/* Detection Details Section */}
