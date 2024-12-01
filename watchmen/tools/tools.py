@@ -7,7 +7,7 @@ import logging
 logging.basicConfig(level=logging.INFO, format="%(asctime)s - %(levelname)s - %(message)s")
 
 
-def owlvit(kws: List[str], image_path: str) -> str:
+def owlvit(kws: List[str], image_paths: List[str]) -> str:
     url = "http://localhost:4390/detect_objects/"
     data = {
         "texts": json.dumps(kws),  # Convert list to JSON string
@@ -15,7 +15,7 @@ def owlvit(kws: List[str], image_path: str) -> str:
     }
 
     files = {
-        "file": ("image.jpg", open(image_path, "rb"), "image/jpeg")
+        "file": ("image.jpg", open(im, "rb"), "image/jpeg") for im in image_paths
     }
 
     response = requests.post(url, data=data, files=files)

@@ -1,3 +1,4 @@
+from typing import List
 from llama_index.core.workflow import (
     Event,
     StartEvent,
@@ -7,12 +8,14 @@ from llama_index.core.workflow import (
     Context
 )
 from llama_index.llms.openai import OpenAI
+from llama_index.llms.bedrock import Bedrock
+
 from dotenv import load_dotenv
 load_dotenv()
 
-from typing import List
 
 from watchmen.tools import owlvit
+from .base import ImageAnalysisEvent, MetaFlow
 
 import os
 from PIL import Image
@@ -20,31 +23,9 @@ from watchmen.logging_config import setup_logger
 logger = setup_logger()
 
 
-from llama_index.llms.bedrock import Bedrock
-
-
 class KeywordsEvent(Event):
     query: str
     keywords: str
-
-class ImageAnalysisEvent(Event):
-    analysis: str
-
-
-class MetaFlow(Workflow):
-    async def irun(self, query: str):
-        intermeds = {}
-
-        handler = self.run(query=query)
-        async for event in handler.stream_events():
-            if isinstance(event, ImageAnalysisEvent):
-                intermeds['image_analysis'] = event.analysis
-        result = await handler
-
-        return {
-            "results": eval(intermeds['image_analysis']),
-            "response": result
-        }
 
 
 class Agent(MetaFlow):
