@@ -116,8 +116,10 @@ const ChatWithLLM = ({ onResponse, selectedLabel, imageData, vesselData, maritim
       const data = await response.json();
       console.log('Received response:', data);
 
-      // Handle the message part first
-      const responseText = data.message || parseResponse(data);
+      // Parse the response using updated parseResponse
+      const responseText = parseResponse(data);
+
+      // Add messages to conversation
       const newMessages = [
         { role: 'user', content: query },
         { role: 'assistant', content: responseText }
@@ -125,29 +127,21 @@ const ChatWithLLM = ({ onResponse, selectedLabel, imageData, vesselData, maritim
       
       setConversation(prev => [...prev, ...newMessages]);
 
-      // Handle UI updates if action is true
-      if (data.action && data.updates) {
-        const { boxes, selectedIndex } = data.updates;
-        
-        if (boxes) {
-          const updatedBoxes = boxes.map((box, index) => ({
-            ...box,
-            color: getColor(index)
-          }));
+      // Handle UI updates if results are present
+      if (data.result) {
+        try {
+          const parsedResult = JSON.parse(data.result.replace(/'/g, '"'));
+          if (parsedResult.results && parsedResult.results.results) {
+            const updatedBoxes = parsedResult.results.results.map((box, index) => ({
+              ...box,
+              color: getColor(index)
+            }));
 
-          const updates = { boxes: updatedBoxes };
-
-          // Add selected label if specified
-          if (selectedIndex !== undefined && updatedBoxes[selectedIndex]) {
-            updates.selectedLabel = {
-              ...updatedBoxes[selectedIndex],
-              index: selectedIndex,
-              color: getColor(selectedIndex)
-            };
+            // Trigger UI update with new boxes
+            onResponse({ boxes: updatedBoxes });
           }
-
-          // Trigger UI update
-          onResponse(updates);
+        } catch (error) {
+          console.error('Error parsing results:', error);
         }
       }
 
